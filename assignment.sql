@@ -18,3 +18,6 @@ where when_created  > current_date -interval '7 days'  GROUP BY agents.city ;
 
 
 SELECT agents.city, agents.country, SUM (agent_transaction_amount) AS transaction_volume (*)FROM agent_transaction when created > “DATE” GROUP BY city, country;
+
+
+SELECT agents.city, SUM (transfers.send_amount_scalar) AS transaction_scalar, transfers.kind AS transfer_kind FROM transfer, agents, agents_transactions WHERE (agents_transactions.when_created >= DATE_TRUNC ('week', CURRENT_TIMESTAMP - interval '1 week'))
