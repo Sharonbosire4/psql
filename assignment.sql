@@ -10,3 +10,8 @@ select count(*), extract(months from when_created) as month from transfers where
 select sum(case when amount > 0 THEN amount else 0 END) as withdrawal,  sum(case when amount < 0 then amount else 0 END) as deposit, 
 case when ((sum(case when amount > 0 THEN amount else 0 END)) > ((sum(case when amount < 0 then amount else 0 END))) * -1) then 'withdrawer' 
 else 'depositer' END as agent_status, count(*)from agent_transactions WHERE when_created  between (now()  - '1 WEEK'::INTERVAL) and now()
+
+
+select agents.city,  count(amount)  from agent_transactions “atx volume city summary" inner join agents on agents.agent_id=agent_transactions.agent_id 
+where when_created  > current_date -interval '7 days'  GROUP BY agents.city ;
+
