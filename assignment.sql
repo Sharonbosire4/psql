@@ -15,3 +15,6 @@ else 'depositer' END as agent_status, count(*)from agent_transactions WHERE when
 select agents.city,  count(amount)  from agent_transactions “atx volume city summary" inner join agents on agents.agent_id=agent_transactions.agent_id 
 where when_created  > current_date -interval '7 days'  GROUP BY agents.city ;
 
+
+
+SELECT agents.city, agents.country, SUM (agent_transaction_amount) AS transaction_volume (*)FROM agent_transaction when created > “DATE” GROUP BY city, country;
