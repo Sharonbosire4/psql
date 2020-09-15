@@ -3,8 +3,6 @@
 PostgreSQL Database Management System
 =====================================
 
-This directory contains the source code distribution of the PostgreSQL
-database management system.
 
 PostgreSQL is an advanced object-relational database management system
 that supports an extended subset of the SQL standard, including
