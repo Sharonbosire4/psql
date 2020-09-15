@@ -1,4 +1,4 @@
-# database assignment
+
 
 PostgreSQL Database Management System
 =====================================
